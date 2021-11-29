@@ -45,16 +45,77 @@ const employeeProfiles = async (employeeList) => {
                 choices: ["Add an engineer", "Add an intern", "Finish building team"]
             }
         ])
-        .then((response) => {
+        .then(async (response) => {
             switch (response.mainMenu) {
-                case "":
+                case "Add an engineer":
+                    await inquirer
+                        .prompt([
+                            {
+                                type: "input",
+                                name: "engineerName",
+                                message: "Engineer's name:"
+                            },
+                            {
+                                type: "input",
+                                name: "engineerID",
+                                message: "Engineer's ID:"
+                            },
+                            {
+                                type: "input",
+                                name: "engineerEmail",
+                                message: "Engineer's email:"
+                            },
+                            {
+                                type: "input",
+                                name: "github",
+                                message: "Engineer's GitHub username:"
+                            }
+                        ])
+                        .then((response) => {
+                            employeeList.push(new Engineer(response.engineerName, response.engineerID, response.engineerEmail, response.github));
+                            return employeeList;
+                        })
+                        .catch(err => console.log(err));
+
+                    await employeeProfiles(employeeList);
                     break;
-                case "":
+                case "Add an intern":
+                    await inquirer
+                        .prompt([
+                            {
+                                type: "input",
+                                name: "internName",
+                                message: "Intern's name:"
+                            },
+                            {
+                                type: "input",
+                                name: "internID",
+                                message: "Intern's ID:"
+                            },
+                            {
+                                type: "input",
+                                name: "internEmail",
+                                message: "Intern's email:"
+                            },
+                            {
+                                type: "input",
+                                name: "school",
+                                message: "Name of the intern's school:"
+                            }
+                        ])
+                        .then((response) => {
+                            employeeList.push(new Intern(response.internName, response.internID, response.internEmail, response.school));
+                            return employeeList;
+                        })
+                        .catch(err => console.log(err));
+
+                    await employeeProfiles(employeeList);
                     break;
-                case "":
+                case "Finish building team":
+                    return employeeList;
                     break;
                 default:
-                    employeeProfiles(employeeList);
+                    await employeeProfiles(employeeList);
             }
         })
         .catch(err => console.log(err));
