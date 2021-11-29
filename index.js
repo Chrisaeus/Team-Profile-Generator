@@ -32,7 +32,8 @@ inquirer
         const employeeList = employeeProfiles([new Manager(response.managerName, response.managerID, response.managerEmail, response.officeNumber)]);
         return employeeList;
     })
-    .then((employeeList) => console.log(employeeList))
+    .then((employeeList) => fs.writeFileSync("./dist/index.html", createHTML(employeeList)))
+    .then(() => console.log("HTML file successfully created in dist directory"))
     .catch(err => console.log(err));
 
 const employeeProfiles = async (employeeList) => {
