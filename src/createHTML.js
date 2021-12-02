@@ -23,7 +23,7 @@ employeeDivs = (employeeList) => {
     let employeeDivs = ``;
     for (let i = 0; i < employeeList.length; i++) {
         employeeDivs +=
-`<div style="margin: 10px; border: solid black 1px; padding: 5px; background-color: white;">
+`<div style="margin: 10px; border: solid black 1px; padding: 15px; background-color: white;">
     <h2>${employeeList[i].name}</h2>
     <h3>${employeeList[i].getRole()}</h3>
     <div>
