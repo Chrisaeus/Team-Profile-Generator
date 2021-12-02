@@ -123,14 +123,3 @@ const employeeProfiles = async (employeeList) => {
     
     return employeeList;
 };
-
-/*
-1. Inquire about employees
-2. Make for loop that makes divs for each new employee
-3. Take those divs and insert into html shell (string literal)
-4. Create html file from populated shell
-
-get manager info
-call function for main menu, pass in responses for manager?
-Array of objects, objects are created employees
-*/

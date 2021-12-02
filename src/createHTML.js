@@ -7,10 +7,13 @@ createHTML = (employeeList) =>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Team Profile</title>
 </head>
-<body>
-    <div style="display: flex; flex-direction: row">
+<body style="background-color: lightgray; font-family: sans-serif;">
+    <header style="display: flex; border-bottom: solid darkgray 10px; padding: 10px; margin: 10px 0px; justify-content: center; color: white; background-color: teal;">
+        <h1>My Team</h1>
+    </header>
+    <div style="display: flex; flex-direction: row; justify-content: center;">
         ${employeeDivs(employeeList)}
     </div>
 </body>
@@ -20,7 +23,7 @@ employeeDivs = (employeeList) => {
     let employeeDivs = ``;
     for (let i = 0; i < employeeList.length; i++) {
         employeeDivs +=
-`<div style="margin: 10px">
+`<div style="margin: 10px; border: solid black 1px; padding: 5px; background-color: white;">
     <h2>${employeeList[i].name}</h2>
     <h3>${employeeList[i].getRole()}</h3>
     <div>
