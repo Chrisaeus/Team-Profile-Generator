@@ -16,5 +16,5 @@
     "start": "node index.js"
   },
   "author": "Christian Sadler",
-  "license": "ISC"
+  "license": "MIT"
 }
